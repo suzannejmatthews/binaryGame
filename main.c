@@ -101,6 +101,110 @@ void level5(char * user_string){
     pass_level();
 }
 
+void level6(char * user_string){
+    //Level 6 recursively sums the values between two numbers. The user gives
+    //the range of number to be summed as well as the sum of that range.
+    //The difference of the numbers must be at least 5.
+    int first_num, second_num, sum_num, tmp;
+    if (read_three_numbers(user_string, &first_num, &second_num, &sum_num) !=3)
+        you_lose(6);
+    if (first_num > second_num)
+        you_lose(6);
+    if ((second_num-first_num) < 5)
+        you_lose(6);
+    int r_sum(int a, int b){
+        int result;
+        if (a==b)
+            return b;
+        result = a;
+        result += r_sum(a+1, b);
+        return result;
+    }
+    tmp = r_sum(first_num, second_num);
+    if (sum_num == tmp)
+        pass_level();
+    else 
+        you_lose(6);
+    //Eventually, this will randomy select two different numbers and
+    //find the recursive sum of the range between those two numbers.
+
+}
+
+void level7(char * user_string){
+    //Level 7 initializes an array of size 10. Then, it fills the array
+    //with random numbers between 0 and 9. After that, the user must figure
+    //out the sum of the left and right halves of the array and return 
+    //that to the screen.
+    int my_array[10];
+    int i;
+    int left_sum = 0;
+    int right_sum = 0;
+    int first_num, second_num;
+    if (read_two_numbers(user_string, &first_num, &second_num) !=2)
+        you_lose(7);
+
+    time_t t;
+    srand((unsigned) time(&t));
+    for (i=0;i<10;i++){
+        my_array[i] = (rand() % 10);
+    }
+    for (i=0;i<5;i++){
+        left_sum += my_array[i];
+        right_sum += my_array[i+5];
+    }
+    if ((first_num != left_sum) || (second_num != right_sum))
+        you_lose(7);
+    else
+        pass_level();
+    }
+
+void level8(char * user_string){
+    //Level 8 creates a matrice with 2 rows and varying lengthed columns
+    //4-8.This level sums the column and has the user guess that sum.
+    int first_num, second_num;
+    int sum1 = 0, sum2 = 0;
+    if (read_two_numbers(user_string, &first_num, &second_num) !=2)
+        you_lose(8);
+    int lower = 4;
+    int upper = 8; 
+    time_t t;
+    srand((unsigned) time(&t));
+    upper = ((rand() % upper)+lower);
+    int **M2, i, j;
+    
+    M2 = malloc(3 * sizeof(int*));
+    for (i=0; i<2;i++){
+        M2[i] = malloc(upper * sizeof(int));
+    }
+    for (i=0; i<2;i++){
+        for(j=0;j<upper;j++){
+            M2[i][j] = (rand() % 10);
+           // printf("%d ",M2[i][j]); //Uncomment this to see the matrice build.
+            if (j==upper-1){
+                printf("\n");
+            }
+        }
+    }
+    //dot product of row and column
+
+    for (i=0; i<2;i++){
+        for(j=0;j<upper;j++){
+            if (i==0)
+                sum1 += M2[i][j];
+            else
+                sum2 += M2[i][j];
+            }
+    }
+    //printf("%d %d\n", sum1, sum2);
+
+    
+    if ((sum1 != first_num) || (sum2 != second_num))
+       you_lose(8);
+    else
+        pass_level();
+}
+
+
 int main(int argc, char ** argv){
   char input[100]; //all strings are less than 100 chars
 
@@ -109,7 +213,6 @@ int main(int argc, char ** argv){
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");
   printf("you need to enter. Good luck and happy hacking!\n");
-
   fgets(input, 100, stdin);
   level1(input);
   printf("Good job with level 1! How about level 2?\n");
@@ -126,6 +229,14 @@ int main(int argc, char ** argv){
   printf("Pass level 5!\n");
   fgets(input,100,stdin);
   level5(input);
+  fgets(input, 100, stdin);
+  level6(input);
+  printf("Good job with level 6! Ready for level 7?\n"); 
+  fgets(input, 100, stdin);
+  level7(input);
+  printf("That wasn't too bad. Level 8 here you come!\n");
+  fgets(input, 100, stdin);
+  level8(input);
   printf("Hooray, you won the game!! Give yourself a pat on the back!\n");
   return 0;
 }
