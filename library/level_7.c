@@ -2,6 +2,7 @@
 #include "level_admin.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <string.h>
 
 void level7(char * user_string){

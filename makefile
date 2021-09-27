@@ -2,7 +2,7 @@
 #	gcc -o reverseGame main.c library/level_8.c library/level_admin.c
 
 make: main.o level_admin.o level_8.o level_7.o level_6.o
-	gcc main.o level_admin.o level_8.o level_7.o level_6.o -o reverseGame
+	gcc main.o level_admin.o level_8.o level_7.o level_6.o -O1 -o reverseGame
 
 main.o: main.c
 	gcc -c main.c
