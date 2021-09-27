@@ -10,13 +10,18 @@ Fourth level: loop (factorial)
 
 Fifth level: loop (fibonacci)
 
-## To Compile
-gcc -O1 -o reverseGame main.c
+Sixth level: recursion
 
-## TODO
-* expand levels
-* places the code for levels in a separate file
-* create a story
-* make levels associated with Dive into Systems assembly chapters
-* create a Makefile
+Seventh level: arrays
+
+Eigth level: matrices
+
+
+
+## To Compile
+$ make
+
+## To clear the objects and executable
+$ make clean
+
 
