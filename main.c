@@ -12,59 +12,12 @@
 #include "library/level_8.h"
 #include "library/level_7.h"
 #include "library/level_6.h"
-
-
-void level1(char * user_string){
-  char * read_only = "Assembly is so cool!";
-  int result = compare_strings(user_string, read_only);
-  if (result != 0)
-    you_lose(1);
-  else
-    pass_level();
-  return;
-}
-
-void level2(char * user_string){
-  int first, second,temp;
-  if(read_two_numbers(user_string, &first, &second) != 2)
-    you_lose(2);
-  temp = first-second;
-  if (temp == 42)
-    pass_level();
-  else
-    you_lose(2);
-}
-
-void level3(char * user_string){
-  int first,second,result,temp;
-  if (read_three_numbers(user_string, &first, &second, &result) != 3)
-    you_lose(3);
-  if (first > 10 || second > 10)
-    you_lose(3);
-  temp = first*5+second;
-  if (result == temp)
-    pass_level();
-  else
-    you_lose(3);
-}
-
-void level4(char * user_string){
-  int start, end, result=1, temp;
-  if (read_two_numbers(user_string, &start, &end)!=2)
-    you_lose(4);
-  if (start > 5)
-    you_lose(4);
-  temp=start;
-  while (temp > 0){
-    result *= temp;
-    temp--;
-  }
-  if (result == end)
-    pass_level();
-  else
-    you_lose(4);
-}
-
+#include "library/level_5.h"
+#include "library/level_4.h"
+#include "library/level_3.h"
+#include "library/level_2.h"
+#include "library/level_1.h"
+/*
 void level5(char * user_string){
   int start, end, result, temp1=0, temp2=1,i;
   if (read_two_numbers(user_string, &start, &end)!=2)
@@ -83,6 +36,7 @@ void level5(char * user_string){
   else
     pass_level();
 }
+*/
 int main(int argc, char ** argv){
   char input[100]; //all strings are less than 100 chars
 

@@ -2,9 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "hint.h"
 
 void you_lose(int level){
     printf("You lose the game!\n");
+    printf("Would you like a hint? [yes|no]\n");
+    char choice[100];
+    fgets(choice, 100, stdin);
+    hint(choice, level);
     exit(level);
 }
 
