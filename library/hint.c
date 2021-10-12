@@ -26,6 +26,8 @@ void hint(char * user_string, int level){
             printf("That array looks pretty random to me.\n");
         else if (level == 8)
             printf("Youre pretty close! This level deals with random matrics and sums!\n");
+        else if (level == 9)
+            printf("Sorry, no hints here.!\n");
 
     }
     return;

@@ -9,6 +9,7 @@
 #include <string.h>
 #include <time.h>
 #include "library/level_admin.h"
+#include "library/level_9.h"
 #include "library/level_8.h"
 #include "library/level_7.h"
 #include "library/level_6.h"
@@ -17,34 +18,17 @@
 #include "library/level_3.h"
 #include "library/level_2.h"
 #include "library/level_1.h"
-/*
-void level5(char * user_string){
-  int start, end, result, temp1=0, temp2=1,i;
-  if (read_two_numbers(user_string, &start, &end)!=2)
-    you_lose(5);
-  if (start < 2 && start > 10)
-    you_lose(5);
-  i = 1; 
-  while (i < start){
-    result = temp1+temp2;
-    temp1 = temp2;
-    temp2 = result;
-    i++;
-  }
-  if (result != end)
-    you_lose(5);
-  else
-    pass_level();
-}
-*/
+
 int main(int argc, char ** argv){
   char input[100]; //all strings are less than 100 chars
-
   printf("Welcome to the reverse engineering game!\n");
-  printf("The game has six levels (level1...level6) that you ");
+  printf("The game has nine levels (level1...level9) that you ");
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");
   printf("you need to enter. Good luck and happy hacking!\n");
+  printf("P.S. Some levels involve rand(), a random number ");
+  printf("generator, so you may have to modify registers \n");
+  printf("with $set 'register' = 'value', depending on some condition.\n");
   fgets(input, 100, stdin);
   level1(input);
   printf("Good job with level 1! How about level 2?\n");
@@ -69,6 +53,9 @@ int main(int argc, char ** argv){
   printf("That wasn't too bad. Level 8 here you come!\n");
   fgets(input, 100, stdin);
   level8(input);
+  printf("Level 9 isn't bad at all!\n");
+  fgets(input, 100, stdin);
+  level9(input);
   printf("Hooray, you won the game!! Give yourself a pat on the back!\n");
   return 0;
 }

@@ -1,8 +1,5 @@
-#make: main.c library/level_8.c library/level_8.h library/level_admin.c library/level_admin.h
-#	gcc -o reverseGame main.c library/level_8.c library/level_admin.c
-
-make: main.o hint.o level_admin.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o
-	gcc main.o hint.o level_admin.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o -O1 -o reverseGame
+make: main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o
+	gcc main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o -O1 -o reverseGame
 
 main.o: main.c
 	gcc -c main.c
@@ -12,6 +9,9 @@ hint.o: library/hint.c library/hint.h
 
 level_admin.o: library/level_admin.c library/level_admin.h
 	gcc -c library/level_admin.c
+
+level_9.o: library/level_9.c library/level_9.h
+	gcc -c library/level_9.c
 
 level_8.o: library/level_8.c library/level_8.h
 	gcc -c library/level_8.c

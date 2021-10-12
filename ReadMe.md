@@ -14,7 +14,9 @@ Sixth level: recursion
 
 Seventh level: arrays
 
-Eigth level: matrices
+Eighth level: matrices
+
+Ninth level: structs
 
 
 
