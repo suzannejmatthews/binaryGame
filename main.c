@@ -1,7 +1,7 @@
 /***Reverse Engineering Game
-  (c) Suzanne J. Matthews, United States Military Academy
+  (c) Suzanne J. Matthews and D'Angelo Gourdine, United States Military Academy
       suzanne.matthews@westpoint.edu
-  Inspired by the Binary Bomb (Stanford University)
+  Inspired by the Binary Bomb (CMU)
 ***/
 
 #include <stdio.h>
@@ -18,10 +18,25 @@
 #include "library/level_3.h"
 #include "library/level_2.h"
 #include "library/level_1.h"
+#include "library/tutorial.h"
 
 int main(int argc, char ** argv){
   char input[100]; //all strings are less than 100 chars
-  printf("Welcome to the reverse engineering game!\n");
+  printf("Welcome to the reverse engineering game and tutorial!\n");
+  printf("Would you like to enter tutorial mode or game mode? ([t]utorial/[g]ame): ");
+  scanf("%s2", input);
+  if (strncmp(input, "t", 2)!= 0 && strncmp(input, "g", 2)!=0) die_with_message("invalid option. please enter t or g", 1);
+  if (strncmp(input, "t", 2) == 0){
+    run_tutorial();
+    printf("Would you like to try out the game? [y/n] ");
+    scanf("%s2", input);
+    while (strncmp(input, "y", 2)!=0 && strncmp(input, "n", 2)!= 0) {
+      fprintf(stderr, "invalid option. please enter y or n ");
+      scanf("%s2", input);
+    }
+    if (strncmp(input, "n", 2)==0)
+      return 0;     
+  }
   printf("The game has nine levels (level1...level9) that you ");
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");

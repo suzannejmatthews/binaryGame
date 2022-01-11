@@ -4,6 +4,11 @@
 #include <string.h>
 #include "hint.h"
 
+void die_with_message(char *msg, int exit_code){
+    fprintf(stderr, "%s\n", msg);
+    exit(exit_code);
+}
+	
 void you_lose(int level){
     printf("You lose the game!\n");
     printf("Would you like a hint? [yes|no]\n");
