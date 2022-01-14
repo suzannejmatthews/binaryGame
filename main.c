@@ -22,19 +22,20 @@
 
 int main(int argc, char ** argv){
   char input[100]; //all strings are less than 100 chars
+  char option;
   printf("Welcome to the reverse engineering game and tutorial!\n");
   printf("Would you like to enter tutorial mode or game mode? ([t]utorial/[g]ame): ");
-  scanf("%s2", input);
-  if (strncmp(input, "t", 2)!= 0 && strncmp(input, "g", 2)!=0) die_with_message("invalid option. please enter t or g", 1);
-  if (strncmp(input, "t", 2) == 0){
+  scanf("%2s", input);
+  if (strncmp(input, "t",2)!=0 && strncmp(input, "g", 2)!=0) die_with_message("invalid option. please enter t or g", 1);
+  if (strncmp(input, "t", 2)==0){
     run_tutorial();
     printf("Would you like to try out the game? [y/n] ");
-    scanf("%s2", input);
-    while (strncmp(input, "y", 2)!=0 && strncmp(input, "n", 2)!= 0) {
+    scanf("%2s", input);
+    while (strncmp(input, "y", 2)!=0 && strncmp(input, "n", 2)!=0) {
       fprintf(stderr, "invalid option. please enter y or n ");
-      scanf("%s2", input);
+      scanf("%2s", input);
     }
-    if (strncmp(input, "n", 2)==0)
+    if (strncmp(input, "n",2)==0)
       return 0;     
   }
   printf("The game has nine levels (level1...level9) that you ");
@@ -44,7 +45,7 @@ int main(int argc, char ** argv){
   printf("P.S. Some levels involve rand(), a random number ");
   printf("generator, so you may have to modify registers \n");
   printf("with $set 'register' = 'value', depending on some condition.\n");
-  fgets(input, 100, stdin);
+  scanf("%100s", input);
   level1(input);
   printf("Good job with level 1! How about level 2?\n");
   fgets(input,100,stdin);
