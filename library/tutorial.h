@@ -5,12 +5,23 @@
 
 void x64_continue_in_GDB(void){
   printf("If you see this message inside of GDB, congratulations!\n");
-  printf("You have successful launched 'reverseGame' in GDB [press ENTER to continue].\n")
+  printf("You have successful launched 'reverseGame' in GDB [press ENTER to continue].\n");
   getchar();
   printf("Let's start by learning about registers.\n");
   printf("There are 16 registers that x64 uses for storing general purpose data.\n");
   printf("Some of them are special.\n");
-  
+  printf("Register %rsp points to the top of the stack.\n");
+  printf("Registers %rdi, %rsi, %rdx and %rcx hold paramters 1..4\n");
+  printf("The return value is stored in register %rax [press ENTER to continue]\n");
+  getchar();
+  printf("Use the p command to view the value of registers:\n");
+  printf("For example, to view the contents of register %rax, type:\n");
+  printf("p $rax\n");
+  printf("[press Enter to continue]\n");
+  getchar();
+  printf("Alternatively, you can use the 'info registers' command:\n");
+  printf("info registers\n");
+  printf("to view the current contents of all registers.\n");
 }
 
 void x64_tutorial(void){
