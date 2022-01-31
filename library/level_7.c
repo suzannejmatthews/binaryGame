@@ -22,7 +22,6 @@ void level7(char * user_string){
     srand((unsigned) 100);
     for (i=0;i<10;i++){
         my_array[i] = (rand() %10);
-        printf("%d\n", my_array[i]);
     }
     for(i=0;i<5;i++){
         left_sum += my_array[i];
