@@ -23,9 +23,9 @@ void hint(char * user_string, int level){
         else if (level == 6)
             printf("does r_sum call itself?\n");
         else if (level == 7)
-            printf("That array looks pretty random to me.\n");
+            printf("left half plus right half.\n");
         else if (level == 8)
-            printf("Youre pretty close! This level deals with random matrics and sums!\n");
+            printf("Youre pretty close! This level deals with matrics and sums, simlar to before!\n");
         else if (level == 9)
             printf("Sorry, no hints here.!\n");
 

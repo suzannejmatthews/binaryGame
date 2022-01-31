@@ -13,7 +13,7 @@ void level8(char * user_string){
       int lower = 4;
       int upper = 8;
       time_t t;
-      srand((unsigned) time(&t));
+      srand((unsigned) 100);
       upper = ((rand() % upper)+lower);
       int **M2, i, j;
 
