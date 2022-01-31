@@ -1,27 +1,29 @@
 
 ## Overview of current code
-First level: string matching
+-**First level**: string matching
 
-Second level: subtract (arithmetic ops)
+-**Second level**: subtract (arithmetic ops)
 
-Third level: harder math (arithmetic ops)
+-**Third level**: harder math (arithmetic ops)
 
-Fourth level: loop (factorial)
+-**Fourth level**: loop (factorial)
 
-Fifth level: loop (fibonacci)
+-**Fifth level**: loop (fibonacci)
 
-Sixth level: recursion
+-**Sixth level**: recursion
 
-Seventh level: arrays
+-**Seventh level**: arrays
 
-Eighth level: matrices
+-**Eighth level**: matrices
 
-Ninth level: structs
-
+-**Ninth level**: structs
 
 
 ## To Compile
 $ make
+
+## To Run
+$ ./reverseGame
 
 ## To clear the objects and executable
 $ make clean
