@@ -19,59 +19,137 @@
 #include "library/level_2.h"
 #include "library/level_1.h"
 #include "library/tutorial.h"
-
-int main(int argc, char ** argv){
+FILE *infile;
+int main(int argc, char * argv[]){
+    
   char input[100]; //all strings are less than 100 chars
-  char option;
+  char text[100][100];
+  int i = 0;
+
+  if (argc == 1){
+    infile = stdin;
+  }
+  else if (argc == 2) {
+    if (!(infile = fopen(argv[1], "r"))) {
+        printf("%s: Could not process %s\n", argv[0], argv[1]);
+        exit(0);
+        }
+    infile = fopen(argv[1], "r");
+    while(fgets(text[i], 100, infile)){
+        i++;
+    }
+  }
+
+
   printf("Welcome to the reverse engineering game and tutorial!\n");
   printf("Would you like to enter tutorial mode or game mode? ([t]utorial/[g]ame): ");
-  scanf("%2s", input);
-  if (strncmp(input, "t",2)!=0 && strncmp(input, "g", 2)!=0) die_with_message("invalid option. please enter t or g", 1);
-  if (strncmp(input, "t", 2)==0){
-    run_tutorial();
-    printf("Would you like to try out the game? [y/n] ");
-    scanf("%2s", input);
-    while (strncmp(input, "y", 2)!=0 && strncmp(input, "n", 2)!=0) {
-      fprintf(stderr, "invalid option. please enter y or n ");
-      scanf("%2s", input);
-    }
-    if (strncmp(input, "n",2)==0)
-      return 0;     
+  if (argc == 1) {
+      fgets(input,100,stdin);
+      if (strncmp(input, "t\n",3)!=0 && strncmp(input, "g\n", 3)!=0) die_with_message("invalid option. please enter t or g", 1);
+      if (strncmp(input, "t\n", 3)==0){
+        run_tutorial();
+        printf("Would you like to try out the game? [y/n] ");
+        fgets(input,100,stdin);
+        while (strncmp(input, "y\n", 3)!=0 && strncmp(input, "n\n", 3)!=0) {
+          fprintf(stderr, "invalid option. please enter y or n ");
+          fgets(input,100,stdin);
+        }
+        if (strncmp(input, "n\n",3)==0)
+          return 0;     
+      }
   }
   printf("The game has nine levels (level1...level9) that you ");
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");
   printf("you need to enter. Good luck and happy hacking!\n");
-  printf("P.S. Some levels involve rand(), a random number ");
-  printf("generator, so you may have to modify registers \n");
-  printf("with $set 'register' = 'value', depending on some condition.\n");
-  scanf("%100s", input);
-  level1(input);
+  printf("Also, if you would like to pass an answer file,");
+  printf("call the function normally followed by your answer file\n");
+  printf("Example: ./reverseGame ans.txt\n");
+  printf("where ans contains:\n");
+  printf("  ans1\n");
+  printf("  ans2\n");
+  if (i >= 1){
+    level1(text[0]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level1(input);
+  }
+
   printf("Good job with level 1! How about level 2?\n");
-  fgets(input,100,stdin);
-  level2(input);
+  if (i >= 2){
+    level2(text[1]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level2(input);
+  }
+
+
   printf("Excellent work with level 2! Onwards to level 3!\n");
-  fgets(input,100,stdin);
-  level3(input);
+
+  if (i >= 3){
+    level3(text[2]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level3(input);
+  }
+
   printf("Wow, you're really getting the hang of this!\n");
   printf("Ready for a challenge? Try level 4!\n");
-  fgets(input,100,stdin);
-  level4(input);
+  if (i >= 4){
+    level4(text[3]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level4(input);
+  }
+
   printf("Awesome work!! Now for the toughest challenge yet...\n");
   printf("Pass level 5!\n");
-  fgets(input,100,stdin);
-  level5(input);
-  fgets(input, 100, stdin);
-  level6(input);
+  if (i >= 5){
+    level5(text[4]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level5(input);
+  }
+
+  printf("Can you overcome 6?!\n");
+  if (i >= 6){
+    level6(text[5]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level6(input);
+  }
   printf("Good job with level 6! Ready for level 7?\n"); 
-  fgets(input, 100, stdin);
-  level7(input);
+  if (i >= 7){
+    level7(text[6]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level7(input);
+  }
+
   printf("That wasn't too bad. Level 8 here you come!\n");
-  fgets(input, 100, stdin);
-  level8(input);
+  if (i >= 8){
+    level8(text[7]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level8(input);
+  }
+
   printf("Level 9 isn't bad at all!\n");
-  fgets(input, 100, stdin);
-  level9(input);
+  if (i >= 9){
+    level9(text[8]);
+  }
+  else{
+      fgets(input,100,stdin);
+      level9(input);
+  }
   printf("Hooray, you won the game!! Give yourself a pat on the back!\n");
   return 0;
 }
