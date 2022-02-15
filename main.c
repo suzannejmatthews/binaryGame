@@ -39,6 +39,11 @@ int main(int argc, char * argv[]){
         i++;
     }
   }
+  else {
+    printf("Too many inputs...\n");
+    exit(0);
+
+  }
 
 
   printf("Welcome to the reverse engineering game and tutorial!\n");
