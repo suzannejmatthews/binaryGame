@@ -21,7 +21,7 @@ void x64_continue_in_GDB(void){
   printf("Let's start by learning about registers.\n");
   printf("There are 16 registers that x64 uses for storing general purpose data.\n");
   printf("Some of them are special.\n");
-  printf("Register %rsp points to the top of the stack.\n");
+  printf("Register %rsp points to the top of the stack. Register %rbp points to the bottom of the current frame.\n");
   printf("Registers %rdi, %rsi, %rdx and %rcx hold paramters 1..4\n");
   printf("The return value is stored in register %rax [press ENTER to continue]\n");
   getchar();
@@ -33,10 +33,13 @@ void x64_continue_in_GDB(void){
   printf("Alternatively, you can use the 'info registers' command:\n");
   printf("info registers\n");
   printf("to view the current contents of all registers.\n");
-  char * try_out_adder = "Let's try out a practice problem.\n\
-   Type 'disas adder2' command to view the assembly of the adder2 function.\n\
-   Type 'n' when you are ready to continue\n";
+  char * try_out_adder = "Let's try out a practice problem.\n \
+   Type 'disas adder2' command to view the assembly of the adder2 function.\n \
+   Keep in mind that this program is not yet running.";
+  char * try_out_adder2 ="So using 'p' and 'info registers' will not show you anything meaningful yet.\n \
+   Press [ENTER] to continue. When you are done inspecting the code, type 'n' to move on to the next part.\n";
   printf(try_out_adder);
+  printf(try_out_adder2);
   getchar();
   pause_function();
   printf("Question 1: What register holds the input parameter?\n");
@@ -69,23 +72,29 @@ void x64_continue_in_GDB(void){
     printf("Sorry, try again! Take a look at DIS 7.1 and 7.2 if you are having trouble reading assembly.\n");
     scanf("%5s", input);
   }  
-  printf("Great job!!\n[press ENTER to continue]\n");
+  printf("Great job!!\nPress [ENTER] to continue then 'n' to go on to the next part.\n");
   getchar();
   pause_function();
   system("clear");
   char * ni_adder = "Lastly, let's discuss how to examine a function instruction by instruction.\n\
   The 'ni' and 'si' executes a function instruction by instruction (instead of line by line).\n\
-  Examining a function in this manner allows you to inspect the values of registers as a function runs.\n";
+  Examining a function in this manner allows you to inspect the values of registers as a function runs.\n\n";
   printf(ni_adder);
   char * last_part = "For the last part of this tutorial, place a breakpoint at the adder2 function:\n\
   b adder2\n\
-  Then press 'n' until you hit that breakpoint.\n \ 
-  After that, type 'disas' and 'ni' in alternating steps, printing out register values as you go\n \
-  This is also a great time to try out the TUI interface\n";
+  Then press 'n' until you hit that breakpoint.\n \
+  After that, type 'disas'. Since the function is now running, you can now print out the contents of registers\
+  and examine memory.\nThe arrow indicates the instruction that is about to execute.\n";
   printf(last_part);
-  printf("[Press Enter to continue]\n");
+  char *final_message = "Try it out: type 'disas' and 'ni' in alternating steps, printing out register values\
+  and examining memory as you go.\nThis is also a great time to try out the TUI interface.\n \
+  When you are done exploring, type 'continue' to go back to the main menu.\n\n \
+  Thanks for trying out the tutorial!\n";
+  printf(final_message);
+  printf("Press [ENTER] to continue\n");
   getchar();
   pause_function();
+
   int example = 40;
   int result = adder2(40);
  
