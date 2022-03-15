@@ -7,17 +7,18 @@
 void hint(char * user_string, int level){
     char * read_only = "yes";
     int result = compare_strings(user_string, read_only);
+    int chapter = 9; //modify to 7 for x64, 8 for x86, 9 for a64
     if (result != 0)
         exit(level);
     else{
         if (level == 1)
-            printf("Registers? Strings? Compare? Dive Into Systems 9.1?\n");
+            printf("Registers? Strings? Compare? Dive Into Systems %d.1?\n", chapter);
         else if (level == 2)
-            printf("I wonder if the common instructions in 9.2 are helpful?\n");
+            printf("I wonder if the common instructions in %d.2 are helpful?\n", chapter);
         else if (level == 3)
-            printf("How can a bit be wise? You can find mORRe on multiplication in 9.3 \n");
+            printf("How can a bit be wise? You can find mORRe on multiplication in %d.3 \n", chapter);
         else if (level == 4)
-            printf("I am sure they have fact (tut)orials on conditions in 9.4\n");
+          printf("I am sure they have fact (tut)orials on conditions in %d.4\n", chapter);
         else if (level == 5)
             printf("Fibbs!\n");
         else if (level == 6)
