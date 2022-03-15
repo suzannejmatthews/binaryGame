@@ -18,8 +18,9 @@
 #include "library/level_3.h"
 #include "library/level_2.h"
 #include "library/level_1.h"
-#include "library/tutorial.h"
+#include "library/help.h"
 FILE *infile;
+
 int main(int argc, char * argv[]){
     
   char input[100]; //all strings are less than 100 chars
@@ -30,6 +31,10 @@ int main(int argc, char * argv[]){
     infile = stdin;
   }
   else if (argc == 2) {
+    if (strncmp(argv[1], "help", 5)==0){ 
+      help_menu();
+      exit(0);
+    }
     if (!(infile = fopen(argv[1], "r"))) {
         printf("%s: Could not process %s\n", argv[0], argv[1]);
         exit(0);
@@ -40,29 +45,17 @@ int main(int argc, char * argv[]){
     }
   }
   else {
-    printf("Too many inputs...\n");
-    exit(0);
-
+    if (strncmp("help", argv[1], 4)==0){
+      help_select(argv[2]);
+    }
+    else{
+        printf("Too many inputs...\n");
+        exit(0);
+    }
   }
 
 
-  printf("Welcome to the reverse engineering game and tutorial!\n");
-  printf("Would you like to enter tutorial mode or game mode? ([t]utorial/[g]ame): ");
-  if (argc == 1) {
-      fgets(input,100,stdin);
-      if (strncmp(input, "t\n",3)!=0 && strncmp(input, "g\n", 3)!=0) die_with_message("invalid option. please enter t or g", 1);
-      if (strncmp(input, "t\n", 3)==0){
-        run_tutorial();
-        printf("Would you like to try out the game? [y/n] ");
-        fgets(input,100,stdin);
-        while (strncmp(input, "y\n", 3)!=0 && strncmp(input, "n\n", 3)!=0) {
-          fprintf(stderr, "invalid option. please enter y or n ");
-          fgets(input,100,stdin);
-        }
-        if (strncmp(input, "n\n",3)==0)
-          return 0;     
-      }
-  }
+  printf("Welcome to the reverse engineering game!\n");
   printf("The game has nine levels (level1...level9) that you ");
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");
@@ -73,6 +66,8 @@ int main(int argc, char * argv[]){
   printf("where ans contains:\n");
   printf("  ans1\n");
   printf("  ans2\n");
+  printf("If you want help at anytime, enter ./reverseGame help [options]\n");
+
   if (i >= 1){
     level1(text[0]);
   }
