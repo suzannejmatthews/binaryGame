@@ -60,13 +60,11 @@ int main(int argc, char * argv[]){
   printf("need to reverse engineer to win the game!\n");
   printf("To pass each level, you need to figure out the secret string ");
   printf("you need to enter. Good luck and happy hacking!\n");
-  printf("Also, if you would like to pass an answer file,");
-  printf("call the function normally followed by your answer file\n");
-  printf("Example: ./reverseGame ans.txt\n");
-  printf("where ans contains:\n");
-  printf("  ans1\n");
-  printf("  ans2\n");
-  printf("If you want help at anytime, enter ./reverseGame help [options]\n");
+  printf("If you still feel lost, CTRL-C this program and type:\n");
+  printf("\t ./reverseGame help me!\n");
+  printf("Or\n");
+  printf("\t ./reverseGame help\n");
+  printf("To view our help pages\n");
 
   if (i >= 1){
     level1(text[0]);
