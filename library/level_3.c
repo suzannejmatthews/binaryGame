@@ -8,7 +8,7 @@ void level3(char * user_string){
    int first, second, result, temp;
    if (read_three_numbers(user_string, &first, &second, &result) != 3)
        you_lose(3);
-    if (first > 10 || second > 10)
+    if (first < 10 || second < 10)
         you_lose(3);
     temp = first*5+second;
     if (result == temp)

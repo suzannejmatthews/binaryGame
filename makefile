@@ -1,8 +1,14 @@
-make: main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o
-	gcc main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o -O1 -o reverseGame
+PY_CFLAGS  := $(shell python3.7-config --cflags)
+PY_LDFLAGS := $(shell python3.7-config --ldflags)
+
+make: main.o hint.o wrapper.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o level_0.o
+	gcc main.o wrapper.o $(PY_LDFLAGS) hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o level_0.o -O1 -o reverseGame
 
 main.o: main.c
 	gcc -c main.c
+
+wrapper.o: library/wrapper.c library/wrapper.h
+	gcc library/wrapper.c -c $(PY_CFLAGS) -fPIC
 
 hint.o: library/hint.c library/hint.h
 	gcc -c library/hint.c
@@ -37,8 +43,10 @@ level_2.o: library/level_2.c library/level_2.h
 level_1.o: library/level_1.c library/level_1.h
 	gcc -c library/level_1.c
 
+level_0.o: library/level_0.c library/level_0.h
+	gcc -c library/level_0.c
+
 
 
 clean:
 	rm *.o reverseGame
-
