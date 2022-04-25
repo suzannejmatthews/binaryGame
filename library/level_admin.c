@@ -23,9 +23,10 @@ void pass_level(){
 }
 
 int compare_strings(char *x, char *y){
-    int length = strlen(x);
-    x[length-1] =0;
-    return strcmp(x,y);
+    //int result = strncmp(x, y, 25);
+    //printf("strncmp(str1, str2, 25) = %d\n", result);
+
+    return strncmp(x,y, 6);
 }
 int read_three_numbers(char * string, int * f, int *s, int *r){
     return sscanf(string, "%d %d %d", f, s, r);

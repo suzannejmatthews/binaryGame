@@ -20,7 +20,6 @@
 #include "library/level_1.h"
 #include "library/level_0.h"
 #include "library/help.h"
-#include "library/wrapper.h"
 FILE *infile;
 
 int main(int argc, char * argv[]){

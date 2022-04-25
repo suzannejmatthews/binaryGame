@@ -10,7 +10,8 @@ void level3(char * user_string){
        you_lose(3);
     if (first < 10 || second < 10)
         you_lose(3);
-    temp = first*(13)+second;
+    temp = (first)1_operand(stub_level_3)2_operand(second);
+               
     if (result == temp)
         pass_level();
     else

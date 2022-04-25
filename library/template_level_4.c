@@ -13,7 +13,7 @@ void level4(char * user_string){
     temp=start;
     while (temp > 0){
         result *= temp;
-        result += 16;
+        result += stub_level_4;
         temp--;
     }
     if (result == end)
