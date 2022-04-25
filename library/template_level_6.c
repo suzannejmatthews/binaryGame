@@ -6,7 +6,7 @@
 
 void level6(char * user_string){
       int first_num, second_num, sum_num, tmp;
-      second_num = 7;
+      second_num = stub_level_6;
       if (read_two_numbers(user_string, &first_num, &sum_num) !=2)
           you_lose(6);
       if (first_num > second_num)
