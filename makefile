@@ -4,7 +4,7 @@ make: gen main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o le
 	gcc main.o hint.o level_admin.o level_9.o level_8.o level_7.o level_6.o level_5.o level_4.o level_3.o level_2.o level_1.o level_0.o -O1 -o reverseGame
 
 gen: library/
-	cd library; python3 generator.py $(RANDOM)
+	cd library; python generator.py $(RANDOM)
 
 main.o: main.c
 	gcc -c main.c
