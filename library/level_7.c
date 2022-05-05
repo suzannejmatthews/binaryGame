@@ -21,7 +21,7 @@ void level7(char * user_string){
         you_lose(7);
     }
     for (i=0;i<10;i++){
-        my_array[i] = ((9 * i) %10);
+        my_array[i] = ((7 * i) %10);
     }
     for(i=0;i<5;i++){
         left_sum += my_array[i];

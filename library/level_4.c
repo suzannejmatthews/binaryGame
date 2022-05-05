@@ -13,7 +13,7 @@ void level4(char * user_string){
     temp=start;
     while (temp > 0){
         result *= temp;
-        result += 16;
+        result += 8;
         temp--;
     }
     if (result == end)

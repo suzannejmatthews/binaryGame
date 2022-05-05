@@ -1,6 +1,9 @@
 
 ## Overview of current code
--**First level**: string matching
+
+-**Zeroth level**: int matching w/out seed
+
+-**First level**: string matching w/ seed
 
 -**Second level**: subtract (arithmetic ops)
 
