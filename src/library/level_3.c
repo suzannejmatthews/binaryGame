@@ -10,9 +10,9 @@ void level3(char * user_string){
        you_lose(3);
     if (first < 10)
         you_lose(3);
-    temp = (first)-(13)*(second);
+    temp = (first)+(17)*(second);
                
-    if (result == (1001 - temp - result))
+    if (result == (133 - temp - result))
         pass_level();
     else
         you_lose(3);

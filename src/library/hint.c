@@ -5,12 +5,14 @@
 #include <string.h>
 
 void hint(char * user_string, int level){
-    char * read_only = "yes";
-    int result = compare_strings(user_string, read_only);
+    char * read_only = "yes\n";
+    int result = strcmp(user_string, read_only);
     int chapter = 9; //modify to 7 for x64, 8 for x86, 9 for a64
     if (result != 0)
         exit(level);
     else{
+        if (level == 0)
+            printf("(gdb) p/d $register shows you the value within a register.\n");
         if (level == 1)
             printf("Registers? Strings? Compare? Dive Into Systems %d.1?\n", chapter);
         else if (level == 2)
