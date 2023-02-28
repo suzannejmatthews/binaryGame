@@ -83,7 +83,6 @@ Suzanne J. Matthews - suzanne.matthews@westpoint.edu
 
 ## Acknowledgments
 * [Suzanne J. Matthews, Tia Newhall, and Kevin C. Webb. _Dive into Systems_](https://diveintosystems.org/)
-* [CMU's Binary Bomb Lab](http://www.cs.cmu.edu/afs/cs/academic/class/15213-s02/www/applications/labs/lab2/bomblab.html)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
