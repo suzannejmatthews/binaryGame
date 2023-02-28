@@ -13,7 +13,7 @@ void level8(char * user_string){
       int lower = 4;
       int upper = 8;
       time_t t;
-      upper = ((19 % upper)+lower);
+      upper = ((13 % upper)+lower);
       int **M2, i, j;
 
       M2 = malloc(3 * sizeof(int*));
@@ -22,7 +22,7 @@ void level8(char * user_string){
       }
       for (i=0; i<2;i++){
           for(j=0;j<upper;j++){
-              M2[i][j] = ((19*j) % 10);
+              M2[i][j] = ((13*j) % 10);
               if (j==upper-1){
                   printf("\n");
               }

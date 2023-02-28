@@ -11,6 +11,8 @@ void hint(char * user_string, int level){
     if (result != 0)
         exit(level);
     else{
+        if (level == 0)
+            printf("Start by looking for predefined functions (end in @plt). How does that tell you how your input string should be formatted?\n", chapter);
         if (level == 1)
             printf("Registers? Strings? Compare? Dive Into Systems %d.1?\n", chapter);
         else if (level == 2)

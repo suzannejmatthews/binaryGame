@@ -62,7 +62,7 @@ void help_gdb(void){
   printf("\t [b]reak *[addr]: sets a breakpoint (assigned a number) at code address [addr]\n");
   printf("\t [d]elete {#}: deletes all breakpoints (if a number is specified, deletes only that breakpoint)\n\n");
   printf("We would recommend you set a breakpoint at each level in the game.\n");
-  printf("For example, to set a breakpoint at level1, type:\n\t(gdb) b level1\n\n");
+  printf("For example, to set a breakpoint at level0, type:\n\t(gdb) b level0\n\n");
 
   printf("Please note that if you quit GDB, all breakpoints will be automatically lost.\n\n");
   printf("[Press ENTER to continue, q to quit]\n");
@@ -71,8 +71,8 @@ void help_gdb(void){
   printf("Navigating through Assembly Programs\n");
   printf("You can view the assembly for any function at any given time by using the command:\n");
   printf("\t [disas]semble {func}: disassemble function {func}\n");
-  printf("As an example, the following command will display the assembly for level 1:\n");
-  printf("\t (gdb) disas level1\n");
+  printf("As an example, the following command will display the assembly for level 0:\n");
+  printf("\t (gdb) disas level0\n");
   printf("Notice that you must be at the GDB prompt for this command to work.\n\n");
  
   printf("The following navigation commands will ONLY work when the program is running:\n");
@@ -212,7 +212,7 @@ void help_x64(void){
   printf("Prior to a function being called, its parameters are loaded (in order) into the needed registers.\n");
   printf("An example, consider a function foo with the declaration int foo(int a, long b, char *c)\n");
   printf("Suppose the main function calls foo:\n foo(aval,bval,cstring);\n");
-  printf("Prior to the function call, main will have instructions that load:\n\t the argument aval into register %%eax (ints are 32 bits)\n");
+  printf("Prior to the function call, main will have instructions that load:\n\t the argument aval into register %%edi (ints are 32 bits)\n");
   printf("\t the argument bval into register %%rsi (longs are 64 bits)\n");
   printf("\t the base address of cstring into register %%rdx (pointers/addresses take up 64-bits)\n");
   printf("All of the above instructions will occur prior to the function call to foo (which looks something like the following):\n");
@@ -249,7 +249,7 @@ void help_x86(void){
   printf("To access the component register of a particular register, the following format is used:\n");
   printf("\t The 16-bit component can be accessed by referring to the last two letters in the register's name. So the 16-bit component of %%eax is %%ax\n");
   printf("\t The least significant byte is accessed like the 16-bit component, but the last letter is instead an 'l'. So the 8-bit component of %%eax is %%al\n");
-  printf("Note that pointer or address data always will be stored in the 8-byte registers on 64-bit systems\n");
+  printf("Note that pointer or address data always will be stored in the 4-byte registers on 32-bit systems\n");
   printf("[PRESS ENTER TO CONTINUE, q to quit]\n");
   pause_function();
 
@@ -285,7 +285,7 @@ void help_x86(void){
 void help_game(void){
   system("clear");
   printf("Here are some helpful tips to get started\n");
-  printf("\t The game has nine levels named level1 .. level9\n");
+  printf("\t The game has ten levels named level0 .. level9\n");
   printf("\t To pass each level, you need to figure out the secret string associated with that level\n\n");
   printf("We recommend...\n");
   printf("\t Running the game in GDB\n"); 
@@ -294,8 +294,9 @@ void help_game(void){
 
   printf("Here are a sample set of commands to get you started:\n");
   printf("\t $ gdb reverseGame\n");
-  printf("\t (gdb) b level1\n");
+  printf("\t (gdb) b level0\n");
   printf("\t (gdb) run\n");
+  printf("\t (gdb) disas level0\n");
   printf("[Press ENTER to get more guidance, q to quit]\n");
   pause_function();
 

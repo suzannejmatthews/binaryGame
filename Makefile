@@ -43,8 +43,14 @@ level_1.o: library/level_1.c library/level_1.h
 	gcc -c library/level_1.c
 
 level_0.o: library/level_0.c library/level_0.h
-	gcc -c library/level_0.c
-
+	gcc -fno-asynchronous-unwind-tables -c library/level_0.c
 
 clean:
 	rm *.o reverseGame
+
+handout:
+	mkdir -p handout-reverseGame
+	cp reverseGame handout-reverseGame/.
+	cp handout-readme.txt handout-reverseGame/README.txt
+	cp main.c handout-reverseGame
+	tar -czvf handout.tar.gz handout-reverseGame/

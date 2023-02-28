@@ -9,7 +9,7 @@ void level0(char * user_string){
     int num;
     num = sscanf(user_string, "%d", &input);
     if (input == 1337)
-        pass_level();
+        pass_level(0);
     else
         you_lose(0);
 }
