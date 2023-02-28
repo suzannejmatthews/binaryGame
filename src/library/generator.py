@@ -44,13 +44,16 @@ def main(seed):
         random.seed(seed) 
         strings = ["5", "7", "11", "13", "17"]
         strings2 = ["+", "-", "*"]
+        strings3 = ["133", "505", "1001", "1311", "179"]
 
         with open("template_level_3.c", "r") as f:
             readData = f.read()
             replacement = random.sample(strings,1)[0]
             replacement2 = random.sample(strings2,1)[0]
             replacement3 = random.sample(strings2,1)[0]
-            readData = readData.replace('stub_level_3',replacement) 
+            replacement4 = random.sample(strings3,1)[0]
+            readData = readData.replace('1stub',replacement) 
+            readData = readData.replace('2stub',replacement4) 
             readData = readData.replace('1_operand',replacement2) 
             readData = readData.replace('2_operand',replacement3) 
             readData = readData.replace('1_operand',replacement2) 

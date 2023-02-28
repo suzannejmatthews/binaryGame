@@ -17,8 +17,7 @@ void level9(char * user_string){
     chad.freetime = 0;
     chad.hours_drill_week = 20;
     chad.tours_left = 100;
-    strcpy(chad.name, "Chad");
-    strcpy(chad.name, "Chad has no free time because of the firstie");
+    strcpy(chad.name, "Chad has no free time because of the supe tax");
     int result = compare_strings(user_string, chad.name);
     if (result != 0)
         you_lose(9);

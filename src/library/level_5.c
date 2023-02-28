@@ -11,7 +11,7 @@ void level5(char * user_string){
     if (start<2 && start >10)
         you_lose(5);
     i=1;
-    while (i<5){
+    while (i<2){
         result = temp1+temp2;
         temp1 = temp2;
         temp2 = result;
