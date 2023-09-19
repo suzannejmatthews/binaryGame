@@ -7,7 +7,7 @@
 void hint(char * user_string, int level){
     int result = ((strcmp(user_string, "yes") == 0) || (strcmp(user_string, "y")==0));
     int chapter = 7; //modify to 7 for x64, 8 for x86, 9 for a64
-    if (result != 0)
+    if (result == 0)
         exit(level);
     else{
         if (level == 0)
