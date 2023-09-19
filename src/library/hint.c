@@ -5,9 +5,8 @@
 #include <string.h>
 
 void hint(char * user_string, int level){
-    char * read_only = "yes\n";
-    int result = strcmp(user_string, read_only);
-    int chapter = 9; //modify to 7 for x64, 8 for x86, 9 for a64
+    int result = ((strcmp(user_string, "yes") == 0) || (strcmp(user_string, "y")==0));
+    int chapter = 7; //modify to 7 for x64, 8 for x86, 9 for a64
     if (result != 0)
         exit(level);
     else{
